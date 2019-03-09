@@ -13,6 +13,8 @@ namespace _Banker
 
         static void Main(string[] args)
         {
+            WebScraper webScraper = new WebScraper();
+            webScraper.Open_Browser();
             
             using (TextFieldParser parser = new TextFieldParser(@"c:\testEnv\export.csv"))
             {
