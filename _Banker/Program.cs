@@ -38,19 +38,9 @@ namespace _Banker
                     groceryStoreList.Add("LION"); //Food Lion
                     groceryStoreList.Add("KROGER");
                     groceryStoreList.Add("WALMART");
+                    groceryStoreList.Add("WAL-MART");
+                    groceryStoreList.Add("WM SUPERCENTER");
                     groceryStoreList.Add("ALDI");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
-                    groceryStoreList.Add("");
 
                     #endregion -->
 
@@ -65,9 +55,12 @@ namespace _Banker
                             
                             if (stringToHoldFields.Count == 7)
                             {
-                                if (stringToHoldFields.Contains("KROGER"))
+                                foreach (string store in groceryStoreList)
                                 {
-                                    groceryCosts.Add(fieldString);                                    
+                                    if (stringToHoldFields.Contains(store))
+                                    {
+                                        groceryCosts.Add(fieldString);
+                                    }
                                 }
                                 string groceryString = string.Join(" ", groceryCosts);
                                 Console.WriteLine(groceryString);
@@ -92,11 +85,12 @@ namespace _Banker
                 //find out if dictionaries would be a better solution for this
                 //try to parse grocery purchases into a list of grocery costs and print grocery costs back out to the screen
                     //if successful, build multiple lists or dictionaries that cover all possible expenditures and then have those lists/dictionaries build and present a report
+                //look to see if I can find a downloadable csv list of all gas stations, grocery stores, etc across the US
                 
 
         }
 
-        public static List<string> GasStationList()
+        public static List<string> GasStationList() //only gas stations
         {
             List<string> listOfGasStations = new List<string>();
             listOfGasStations.Add("GAS N GO");
@@ -107,7 +101,43 @@ namespace _Banker
             return listOfGasStations;
         }
 
+        public static List<string> GroceryStoreList()
+        {
+            List<string> listOfGroceryStores = new List<string>(); //only stores you buy food for the house for - kroger, walmart, etc
+            listOfGroceryStores.Add("");
+            return listOfGroceryStores;
+        }
 
+        public static List<string> FastFoodList() //mcdonalds, burger king, pizza hut, starbucks, etc - any food ordered out that was not cooked in house
+        {
+            List<string> listOfGroceryStores = new List<string>();
+            listOfGroceryStores.Add("");
+            return listOfGroceryStores;
+        }
 
+        public static List<string> GeneralStoreList() //Walmart, Amazon, etc - could be groceries, but count it as general store as rule of thumb
+        {
+            List<string> listOfGroceryStores = new List<string>();
+            listOfGroceryStores.Add("");
+            return listOfGroceryStores;
+        }
+
+        public static List<string> FamilyCostsList() //karate, dance, school, outings, etc - things you do with the family
+        {
+            List<string> listOfGroceryStores = new List<string>();
+            listOfGroceryStores.Add("");
+            return listOfGroceryStores;
+        }
     }
+
+
+    //scrape wikipedia to get lists of store names
+    /*
+  http://softvernow.com/2018/09/28/how-to-web-scraping-using-c/
+
+    */
+
+
+
+
 }
