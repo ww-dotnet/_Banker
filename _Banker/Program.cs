@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,14 @@ namespace _Banker
 
         static void Main(string[] args)
         {
-            WebScraper webScraper = new WebScraper();
-            webScraper.Open_Browser();
+            GasStationListParser();
             
+
+            //query website
+            //WebScraper webScraper = new WebScraper();
+            //webScraper.Open_Browser();
+            //--
+
             using (TextFieldParser parser = new TextFieldParser(@"c:\testEnv\export.csv"))
             {
                 parser.TextFieldType = FieldType.Delimited;
@@ -65,8 +71,8 @@ namespace _Banker
                                     }
                                 }
                                 string groceryString = string.Join(" ", groceryCosts);
-                                Console.WriteLine(groceryString);
-                                Console.WriteLine(fieldString);
+                                //Console.WriteLine(groceryString);
+                                //Console.WriteLine(fieldString);
                                 stringToHoldFields.Clear();
                             }
 
@@ -75,7 +81,7 @@ namespace _Banker
                             fieldCount = 0;
                         }
                     }
-                    Console.WriteLine();                    
+                    //Console.WriteLine();                    
                 }
             }
             Console.ReadLine();
@@ -92,16 +98,25 @@ namespace _Banker
 
         }
 
-        public static List<string> GasStationList() //only gas stations
+        public static void GasStationListParser()
         {
             List<string> listOfGasStations = new List<string>();
-            listOfGasStations.Add("GAS N GO");
-            listOfGasStations.Add("4-5 STAR MARKETS");
-            listOfGasStations.Add("WEIGELS");
-            listOfGasStations.Add("");
-
-            return listOfGasStations;
+            var contents = File.ReadLines("C:\\Users\\NEO\\source\\repos\\_Banker\\_Banker\\gasStationList.txt");
+            foreach (var item in contents)
+            {
+                Console.WriteLine($"***********{item}");
+                
+                listOfGasStations.Add(item);
+            }
         }
+
+        //this is working - need to finalize with all the other lists, etc
+
+
+
+
+
+
 
         public static List<string> GroceryStoreList()
         {

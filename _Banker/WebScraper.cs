@@ -10,20 +10,21 @@
 //    {
 
 //        //public IWebDriver driver;
-        
 
+//        //------>>>> ***************************** https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_the_United_States
+//        //---> collect all of the store names on this page ^ and store the output in a .txt then comment this code out again
 
 
 //        public void Open_Browser()
 //        {
 //            var driver = new ChromeDriver("C:\\Users\\NEO\\source\\repos\\_Banker\\_Banker");
-//            var service = ChromeDriverService.CreateDefaultService("C:\\Users\\NEO\\source\\repos\\_Banker\\_Banker", "chromedriver.exe");            
+//            var service = ChromeDriverService.CreateDefaultService("C:\\Users\\NEO\\source\\repos\\_Banker\\_Banker", "chromedriver.exe");
 //            //service.HideCommandPromptWindow = true;
 
 
 //            try
 //            {
-//                driver.Navigate().GoToUrl("https://en.wikipedia.org/wiki/List_of_filling_station_chains_in_North_America");
+//                driver.Navigate().GoToUrl("https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_the_United_States");
 //            }
 //            catch
 //            {
@@ -35,7 +36,18 @@
 //        public List<string> Find_Data(ChromeDriver driver)
 //        {
 //            List<string> stationNames = new List<string>();
-//            IList<IWebElement> searchElements = driver.FindElements(By.CssSelector("#mw-content-text > div > div.div-col.columns.column-width"));
+//            IList<IWebElement> searchElements = driver.FindElements(By.ClassName(".mw-parser-output"));
+//            IList<IWebElement> listItems = driver.FindElements(By.XPath(".//li"));
+            
+//            foreach (IWebElement x in listItems)
+//            {
+//                Console.WriteLine(x.Text);
+//            }
+
+
+//            //# mw-content-text > div > ul:nth-child(4)
+//            //IList<IWebElement> searchElements = driver.FindElements(By.TagName("li"));
+
 //            foreach (IWebElement i in searchElements)
 //            {
 //                string iText = i.Text;
@@ -47,13 +59,13 @@
 //                Go to website
 //                Select the elements listed in line 38
 //                Take the text from each element of that type
-                
+
 //            This code will allow you to scrape at least Wikipedia - it is unfinished because I realized I didn't need it.
 //            I got far enough for the code to tell me what was in the iText string, which is the list I needed
 //                so I just added it to a .txt file in the solution rather than querying the website every time this runs
-            
-             
-             
+
+
+
 //                */
 
 
@@ -86,7 +98,7 @@
 //        }
 //        public void Open_Browser()
 //        {
-            
+
 //            var driverService = ChromeDriverService.CreateDefaultService();
 //            driverService.HideCommandPromptWindow = true;
 //            //var options = new ChromeOptions();
@@ -100,7 +112,7 @@
 //            {
 //                throw;
 //            }
-            
+
 //        }
 //        private void BtnOpen_Click(object sender, EventArgs e)
 //        {
