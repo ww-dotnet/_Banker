@@ -10,9 +10,7 @@ namespace _Banker
 
             
     class ListFactory
-    {
-        #region List Factory
-
+    {     
         internal static List<string> GasStationList()
         {
             List<string> listOfGasStations = new List<string>();
@@ -37,25 +35,16 @@ namespace _Banker
             return listOfGroceryStores;
         }
 
-        internal static List<string> RetailStoreList()
+        internal static List<string> DepartmentStoreList()
         {
-
-            //scrape this list https://en.wikipedia.org/wiki/List_of_department_stores_of_the_United_States
-                //no longer scraping - do this by hand
-            List<string> listOfGroceryStores = new List<string>();
-            var contents = File.ReadLines("C:\\Users\\NEO\\source\\repos\\_Banker\\_Banker\\groceryStoreList.txt");
+            List<string> listOfDepartmentStores = new List<string>();
+            var contents = File.ReadLines("C:\\Users\\NEO\\source\\repos\\_Banker\\_Banker\\departmentStoreList.txt");
             foreach (var item in contents)
             {
                 //Console.WriteLine($"***********{item}");                
-                listOfGroceryStores.Add(item);
+                listOfDepartmentStores.Add(item);
             }
-            return listOfGroceryStores;
+            return listOfDepartmentStores;
         }
-
-
-        #endregion
-
-
-
     }
 }

@@ -27,13 +27,11 @@ namespace _Banker
     class Program
     {
 
-
-
-
         static void Main(string[] args)
         {
             List<string> gasStationList = ListFactory.GasStationList();
             List<string> groceryStoreList = ListFactory.GroceryStoreList();
+            List<string> departmentStoreList = ListFactory.DepartmentStoreList();
 
 
 
@@ -118,15 +116,4 @@ namespace _Banker
 
 
     }
-
-
-    //scrape wikipedia to get lists of store names
-    /*
-  http://softvernow.com/2018/09/28/how-to-web-scraping-using-c/
-
-    */
-
-
-
-
 }
