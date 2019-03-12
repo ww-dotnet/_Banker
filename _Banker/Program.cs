@@ -30,8 +30,8 @@ namespace _Banker
         static void Main(string[] args)
         {
             List<string> gasStationList = ListFactory.GasStationList();
-            List<string> groceryStoreList = ListFactory.GroceryStoreList();
             List<string> departmentStoreList = ListFactory.DepartmentStoreList();
+            List<string> groceryStoreList = ListFactory.GroceryStoreList();
 
 
 
