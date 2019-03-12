@@ -6,16 +6,40 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
 
+
+
+//***************************************************MAIN THEORY********************************************************************
+//-need to create methods like this to store lists of grocery stores, big name brands (amazon, etc) and populate on start.
+//-then parse csv against these lists and create groups of spending
+//-then create calculations based on spendings from certain categories
+//-then feed that information into an infographic that displays the results of data mining to the user
+//***************************************************MAIN THEORY********************************************************************
+
+
+    //work must be hard for success to occur - hand write all the store lists instead of relying on the scraper's auto generation
+    //the list queries are going to be the success of the software
+
+
+
+
 namespace _Banker
 {
     class Program
     {
-        
+
+
+
 
         static void Main(string[] args)
         {
-            GasStationListParser();
-            
+            List<string> gasStationList = ListFactory.GasStationList();
+            List<string> groceryStoreList = ListFactory.GroceryStoreList();
+
+
+
+
+
+
 
             //query website
             //WebScraper webScraper = new WebScraper();
@@ -37,20 +61,7 @@ namespace _Banker
 
                     List<string> stringToHoldFields = new List<string>();
                     List<string> groceryCosts = new List<string>();
-                    List<string> groceryStoreList = new List<string>();
 
-                    #endregion -->
-
-                    #region GroceryStoreContainer
-
-                    groceryStoreList.Add("LION"); //Food Lion
-                    groceryStoreList.Add("KROGER");
-                    groceryStoreList.Add("WALMART");
-                    groceryStoreList.Add("WAL-MART");
-                    groceryStoreList.Add("WM SUPERCENTER");
-                    groceryStoreList.Add("ALDI");
-
-                    #endregion -->
 
 
                     foreach (string field in fields)
@@ -60,7 +71,7 @@ namespace _Banker
                         {
                             stringToHoldFields.Add(field);
                             string fieldString = string.Join(" ", stringToHoldFields);
-                            
+
                             if (stringToHoldFields.Count == 7)
                             {
                                 foreach (string store in groceryStoreList)
@@ -90,61 +101,22 @@ namespace _Banker
             //the idea is to parse everything out into different lists so that we can manipulate the lists and present data from them
             //this may be better achieved with a dictionary rather than a bunch of lists..
             //TODO
-                //find out if dictionaries would be a better solution for this
-                //try to parse grocery purchases into a list of grocery costs and print grocery costs back out to the screen
-                    //if successful, build multiple lists or dictionaries that cover all possible expenditures and then have those lists/dictionaries build and present a report
-                //look to see if I can find a downloadable csv list of all gas stations, grocery stores, etc across the US
-                
+            //find out if dictionaries would be a better solution for this
+            //try to parse grocery purchases into a list of grocery costs and print grocery costs back out to the screen
+            //if successful, build multiple lists or dictionaries that cover all possible expenditures and then have those lists/dictionaries build and present a report
+            //look to see if I can find a downloadable csv list of all gas stations, grocery stores, etc across the US
+
 
         }
 
-        public static void GasStationListParser()
-        {
-            List<string> listOfGasStations = new List<string>();
-            var contents = File.ReadLines("C:\\Users\\NEO\\source\\repos\\_Banker\\_Banker\\gasStationList.txt");
-            foreach (var item in contents)
-            {
-                Console.WriteLine($"***********{item}");
-                
-                listOfGasStations.Add(item);
-            }
-        }
-
-        //this is working - need to finalize with all the other lists, etc
 
 
 
 
 
+        #endregion
 
 
-        public static List<string> GroceryStoreList()
-        {
-            List<string> listOfGroceryStores = new List<string>(); //only stores you buy food for the house for - kroger, walmart, etc
-            listOfGroceryStores.Add("");
-            return listOfGroceryStores;
-        }
-
-        public static List<string> FastFoodList() //mcdonalds, burger king, pizza hut, starbucks, etc - any food ordered out that was not cooked in house
-        {
-            List<string> listOfGroceryStores = new List<string>();
-            listOfGroceryStores.Add("");
-            return listOfGroceryStores;
-        }
-
-        public static List<string> GeneralStoreList() //Walmart, Amazon, etc - could be groceries, but count it as general store as rule of thumb
-        {
-            List<string> listOfGroceryStores = new List<string>();
-            listOfGroceryStores.Add("");
-            return listOfGroceryStores;
-        }
-
-        public static List<string> FamilyCostsList() //karate, dance, school, outings, etc - things you do with the family
-        {
-            List<string> listOfGroceryStores = new List<string>();
-            listOfGroceryStores.Add("");
-            return listOfGroceryStores;
-        }
     }
 
 

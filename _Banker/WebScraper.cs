@@ -24,7 +24,7 @@
 
 //            try
 //            {
-//                driver.Navigate().GoToUrl("https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_the_United_States");
+//                driver.Navigate().GoToUrl("https://en.wikipedia.org/wiki/List_of_department_stores_of_the_United_States");
 //            }
 //            catch
 //            {
@@ -38,7 +38,7 @@
 //            List<string> stationNames = new List<string>();
 //            IList<IWebElement> searchElements = driver.FindElements(By.ClassName(".mw-parser-output"));
 //            IList<IWebElement> listItems = driver.FindElements(By.XPath(".//li"));
-            
+
 //            foreach (IWebElement x in listItems)
 //            {
 //                Console.WriteLine(x.Text);
@@ -149,25 +149,25 @@
 //        }
 //    }
 
-//    -----------------------------------------------
+////    -----------------------------------------------
 
-//    /////////---->>>      line Find_Data() backups
-//                    //HtmlAgilityPack.HtmlDocument htmlDocument = new HtmlAgilityPack.HtmlDocument();
-//                //var text = i.GetAttribute("innerHTML");
-//                //htmlDocument.LoadHtml(text);
-//                //var inputs = htmlDocument.DocumentNode.Descendants("li").ToList();
-//                //foreach (var items in inputs)
-//                //{
-//                //    HtmlAgilityPack.HtmlDocument htmlDocument1 = new HtmlAgilityPack.HtmlDocument();
-//                //    htmlDocument1.LoadHtml(items.InnerHtml);
-//                //    var tds = htmlDocument1.DocumentNode.Descendants("td").ToList();
-
-
-
-//                //The below is probably not needed
-//                    //if (tds.Count != 0)
-//                        //txtResults.AppendText(tds[0].InnerText + " " + tds[1].InnerText + " " + tds[2].InnerText + " " + tds[3].InnerText + "\t\r");
+////    /////////---->>>      line Find_Data() backups
+////                    //HtmlAgilityPack.HtmlDocument htmlDocument = new HtmlAgilityPack.HtmlDocument();
+////                //var text = i.GetAttribute("innerHTML");
+////                //htmlDocument.LoadHtml(text);
+////                //var inputs = htmlDocument.DocumentNode.Descendants("li").ToList();
+////                //foreach (var items in inputs)
+////                //{
+////                //    HtmlAgilityPack.HtmlDocument htmlDocument1 = new HtmlAgilityPack.HtmlDocument();
+////                //    htmlDocument1.LoadHtml(items.InnerHtml);
+////                //    var tds = htmlDocument1.DocumentNode.Descendants("td").ToList();
 
 
 
-//    */
+////                //The below is probably not needed
+////                    //if (tds.Count != 0)
+////                        //txtResults.AppendText(tds[0].InnerText + " " + tds[1].InnerText + " " + tds[2].InnerText + " " + tds[3].InnerText + "\t\r");
+
+
+
+////    */
