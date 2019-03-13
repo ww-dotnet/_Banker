@@ -18,7 +18,11 @@ using Microsoft.VisualBasic.FileIO;
 
     //work must be hard for success to occur - hand write all the store lists instead of relying on the scraper's auto generation
     //the list queries are going to be the success of the software
-        //have pretty good lists - need to clean up
+        
+    //TODO
+        //create cost containers
+        //compare each word in each list to each other
+        //sort selected items into their appropriate cost container
 
 
 
@@ -47,29 +51,51 @@ namespace _Banker
                 {     
                     //Process row
                     string[] fields = parser.ReadFields();
-                                        
                     foreach (string field in fields)
                     {
-                        lineBuilder.Add(field);
-                        if (lineBuilder.Count == 7) {
-                            lineStorer.AddRange(lineBuilder);
-                            lineStorer.Add("  []  "); //sorting key
+                        columnCounter++;
+                        if (columnCounter != 7)
+                        {
+                            if (!string.IsNullOrEmpty(field))
+                            {
+                                lineBuilder.Add(field);
+                            }
+                            else if (!string.IsNullOrWhiteSpace(field))
+                            {
+                                lineBuilder.Add(field);
+                            }
+                            else
+                            {
+                                continue;
+                            }
                         }
-
-                        //this linestorer holds each line from the CSV with a sorting key []
-                        //take the linestorer, and parse through it
-                        
-                        //hmm maybe a dictionary?
-
-                            Console.WriteLine(field);
-                            ComparisonMachine.ComparisonEngine(field.Trim());
-                            //Console.Write(field.Trim() + "   "); //******THIS IS THE OUTPUT STRING AS THE PROGRAM PARSES THE CSV
+                        else
+                        {
+                            string lineConcat = String.Join(" ", lineBuilder);
+                            lineStorer.Add(lineConcat);
+                            lineBuilder.Clear();
+                            columnCounter = 0;
                         }
                     }
-                    Console.WriteLine();
-                    Console.ReadLine();
+
+                    //the following method call will compare each line in lineStorer with each line in each store list and return true or false for that line
+                    //once I get that true or false, I can begin to sort costs by whether they match X list or not
+                    //ComparisonMachine.ComparisonEngine(field.Trim());
+
+                            //now I have a list of strings that contains each line from the spreadsheet
+                            //that list is lineStorer
+                            //from here, I can separate each line into individual words by splitting on the whitespace
+                            //then I can split each line in the store list by each word using the same whitespace split
+                            //then I can compare each word in each list to each other and if any of the words match
+                            //sort the selected object into the correct cost container
+
+
+                }
+                    //Console.WriteLine();
+                    //Console.ReadLine();
                 }            
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
+ 

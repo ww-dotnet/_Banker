@@ -22,8 +22,8 @@ namespace _Banker
         List<string> groceryStoreList = ListFactory.GroceryStoreList();
             //list factory needs more lists to store sorted costs
 
-            Console.WriteLine(csvLineData);
-            Console.ReadLine();
+            //Console.WriteLine(csvLineData);
+            //Console.ReadLine();
 
             //create a machine that takes each line of the csv and cleans it up, generating more string data based on the string it parses to make for clearer
             //comparison data here
