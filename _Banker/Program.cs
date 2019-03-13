@@ -18,6 +18,7 @@ using Microsoft.VisualBasic.FileIO;
 
     //work must be hard for success to occur - hand write all the store lists instead of relying on the scraper's auto generation
     //the list queries are going to be the success of the software
+        //have pretty good lists - need to clean up
 
 
 
@@ -26,94 +27,49 @@ namespace _Banker
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             List<string> gasStationList = ListFactory.GasStationList();
             List<string> departmentStoreList = ListFactory.DepartmentStoreList();
             List<string> groceryStoreList = ListFactory.GroceryStoreList();
+            
 
-
-
-
-
-
-
-            //query website
-            //WebScraper webScraper = new WebScraper();
-            //webScraper.Open_Browser();
-            //--
 
             using (TextFieldParser parser = new TextFieldParser(@"c:\testEnv\export.csv"))
             {
+                List<string> lineBuilder = new List<string>();
+                List<string> lineStorer = new List<string>();
+                int columnCounter = 0;
+
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
-                parser.SetFieldWidths(7);
                 while (!parser.EndOfData)
-                {
+                {     
                     //Process row
                     string[] fields = parser.ReadFields();
-                    int fieldCount = 0;
-
-                    #region ListContainer
-
-                    List<string> stringToHoldFields = new List<string>();
-                    List<string> groceryCosts = new List<string>();
-
-
-
+                                        
                     foreach (string field in fields)
                     {
-                        fieldCount++;
-                        if (fieldCount <= 7)
-                        {
-                            stringToHoldFields.Add(field);
-                            string fieldString = string.Join(" ", stringToHoldFields);
+                        lineBuilder.Add(field);
+                        if (lineBuilder.Count == 7) {
+                            lineStorer.AddRange(lineBuilder);
+                            lineStorer.Add("  []  "); //sorting key
+                        }
 
-                            if (stringToHoldFields.Count == 7)
-                            {
-                                foreach (string store in groceryStoreList)
-                                {
-                                    if (stringToHoldFields.Contains(store))
-                                    {
-                                        groceryCosts.Add(fieldString);
-                                    }
-                                }
-                                string groceryString = string.Join(" ", groceryCosts);
-                                //Console.WriteLine(groceryString);
-                                //Console.WriteLine(fieldString);
-                                stringToHoldFields.Clear();
-                            }
+                        //this linestorer holds each line from the CSV with a sorting key []
+                        //take the linestorer, and parse through it
+                        
+                        //hmm maybe a dictionary?
 
-
-                            //Console.Write(field.Trim() + "   ");                            
-                            fieldCount = 0;
+                            Console.WriteLine(field);
+                            ComparisonMachine.ComparisonEngine(field.Trim());
+                            //Console.Write(field.Trim() + "   "); //******THIS IS THE OUTPUT STRING AS THE PROGRAM PARSES THE CSV
                         }
                     }
-                    //Console.WriteLine();                    
-                }
-            }
+                    Console.WriteLine();
+                    Console.ReadLine();
+                }            
             Console.ReadLine();
-
-            //not quite working yet --- nothing is added to groceryCosts, it seems
-            //the idea is to parse everything out into different lists so that we can manipulate the lists and present data from them
-            //this may be better achieved with a dictionary rather than a bunch of lists..
-            //TODO
-            //find out if dictionaries would be a better solution for this
-            //try to parse grocery purchases into a list of grocery costs and print grocery costs back out to the screen
-            //if successful, build multiple lists or dictionaries that cover all possible expenditures and then have those lists/dictionaries build and present a report
-            //look to see if I can find a downloadable csv list of all gas stations, grocery stores, etc across the US
-
-
         }
-
-
-
-
-
-
-        #endregion
-
-
     }
 }
