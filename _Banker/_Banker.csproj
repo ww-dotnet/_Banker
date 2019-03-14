@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="ComparisonMachine.cs" />
     <Compile Include="ListFactory.cs" />
+    <Compile Include="ParseMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_devNotes.cs" />

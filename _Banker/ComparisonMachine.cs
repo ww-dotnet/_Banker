@@ -8,35 +8,46 @@ namespace _Banker
 {
     class ComparisonMachine
     {
-        private static bool isFound;
+        private static string costField;
 
-        public bool IsFound
+        public string CostField
         {
-            get { return isFound; }            
+            get { return costField; }
         }
-
-        public static void ComparisonEngine(string csvLineData)
+        public static void ComparisonEngine(List<string> csvLineData)
         {
-        List<string> gasStationList = ListFactory.GasStationList();
-        List<string> departmentStoreList = ListFactory.DepartmentStoreList();
-        List<string> groceryStoreList = ListFactory.GroceryStoreList();
-            //list factory needs more lists to store sorted costs
+            List<string> gasStationList = ListFactory.GasStationList();
+            List<string> departmentStoreList = ListFactory.DepartmentStoreList();
+            List<string> groceryStoreList = ListFactory.GroceryStoreList();
 
-            //Console.WriteLine(csvLineData);
-            //Console.ReadLine();
+            List<string> splitGasList = new List<string>();
+            List<string> splitDeptList = new List<string>();
+            List<string> splitGroceryList = new List<string>();
+            List<string> splitCsvLineData = new List<string>();
 
-            //create a machine that takes each line of the csv and cleans it up, generating more string data based on the string it parses to make for clearer
-            //comparison data here
-            //then pass that data in to this machine which will split by whitespace each line thereby creating a list of words
-            //compare each word in the new word list to each word in the other list
-
-
-            //Console.WriteLine($"***********  { csvLineData } **************");
-            if (groceryStoreList.Contains(csvLineData))
+            
+            foreach (string item in gasStationList)
             {
-                //Console.WriteLine("***************************TRUE******************");
-                isFound = true;
+                string[] splitter = item.Split(' ');
+                splitGasList.AddRange(splitter);
             }
+            foreach (string line in csvLineData)
+            {
+                Console.WriteLine(line);
+                foreach (string gasStationNamePiece in splitGasList)
+                {
+                    if (line.Contains(gasStationNamePiece))
+                    {
+                        ListFactory.gasStationCost.Add(line);
+
+                        //this algorithm is working, but it is adding USPS stuff to the 
+                        //gas station list - it shouldn't do that
+                        //may need to parse further
+
+                    }
+                }
+            }
+            //needs to be foreach item in csvlinedata, compare to a split list of grocerystores
         }
     }
 }

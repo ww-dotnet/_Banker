@@ -33,12 +33,14 @@ namespace _Banker
     {
         static void Main(string[] args)
         {
-            foreach (string item in ParseMachine("c:\\testenv\\export.csv"))
-            {
-                Console.WriteLine(item);
-                    
-            }
-            
+            List<string> gasStationList = ListFactory.GasStationList();
+            List<string> departmentStoreList = ListFactory.DepartmentStoreList();
+            List<string> groceryStoreList = ListFactory.GroceryStoreList();
+
+            List<string> parsedCsv = ParseMachine.ParseEngine("c:\\testenv\\export.csv");
+
+            ComparisonMachine.ComparisonEngine(parsedCsv);
+
 
             //the following method call will compare each line in lineStorer with each line in each store list and return true or false for that line
             //once I get that true or false, I can begin to sort costs by whether they match X list or not
@@ -53,59 +55,7 @@ namespace _Banker
             //Console.ReadLine();
         }
 
-        public static List<string> ParseMachine(string path)
-        {
-            List<string> gasStationList = ListFactory.GasStationList();
-            List<string> departmentStoreList = ListFactory.DepartmentStoreList();
-            List<string> groceryStoreList = ListFactory.GroceryStoreList();
 
-            using (TextFieldParser parser = new TextFieldParser(path))
-            {
-                List<string> lineBuilder = new List<string>();
-                List<string> lineStorer = new List<string>();
-                int columnCounter = 0;
-
-                parser.TextFieldType = FieldType.Delimited;
-                parser.SetDelimiters(",");
-                while (!parser.EndOfData)
-                {
-                    //Process row
-                    string[] fields = parser.ReadFields();
-                    foreach (string field in fields)
-                    {
-                        columnCounter++;
-                        if (columnCounter != 7)
-                        {
-                            if (!string.IsNullOrEmpty(field))
-                            {
-                                lineBuilder.Add(field);
-                            }
-                            else if (!string.IsNullOrWhiteSpace(field))
-                            {
-                                lineBuilder.Add(field);
-                            }
-                            else
-                            {
-                                continue;
-                            }
-                        }
-                        else
-                        {
-                            string lineConcat = String.Join(" ", lineBuilder);
-                            lineStorer.Add(lineConcat);
-                            foreach (string item in lineStorer)
-                            {
-                                //Console.WriteLine(item);
-                            }
-                            lineBuilder.Clear();
-                            columnCounter = 0;
-                        }
-                    }
-                }
-                return lineStorer;
-            }
-
-        }
 
 
 

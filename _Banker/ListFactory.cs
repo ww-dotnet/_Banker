@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 namespace _Banker
 {            
     class ListFactory
-    {     
+    {
+        internal static List<string> gasStationCost = new List<string>();
+        internal static List<string> groceryStoreCost = new List<string>();
+        internal static List<string> deptStoreCost = new List<string>();
+
+
         internal static List<string> GasStationList()
         {
             List<string> listOfGasStations = new List<string>();
