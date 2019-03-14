@@ -30,7 +30,7 @@ namespace _Banker
                     foreach (string field in fields)
                     {
                         columnCounter++;
-                        if (columnCounter != 7)
+                        if (columnCounter != 8)
                         {
                             if (!string.IsNullOrEmpty(field))
                             {

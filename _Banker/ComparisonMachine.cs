@@ -19,6 +19,7 @@ namespace _Banker
             List<string> gasStationList = ListFactory.GasStationList();
             List<string> departmentStoreList = ListFactory.DepartmentStoreList();
             List<string> groceryStoreList = ListFactory.GroceryStoreList();
+            List<string> shippingStoreList = ListFactory.ShippingStoreList();
 
             List<string> splitGasList = new List<string>();
             List<string> splitDeptList = new List<string>();
@@ -34,6 +35,15 @@ namespace _Banker
             foreach (string line in csvLineData)
             {
                 Console.WriteLine(line);
+                foreach (string shippingStore in shippingStoreList)
+                {
+                    if (line.Contains(shippingStore))
+                    {
+                        ListFactory.shippingStoreCost.Add(line);
+                        continue;
+                    }
+                }
+
                 foreach (string gasStationNamePiece in splitGasList)
                 {
                     if (line.Contains(gasStationNamePiece))

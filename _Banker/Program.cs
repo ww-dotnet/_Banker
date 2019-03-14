@@ -24,7 +24,7 @@ using Microsoft.VisualBasic.FileIO;
         //compare each word in each list to each other
         //sort selected items into their appropriate cost container
 
-
+    //go through lists and clean them up by hand to increase success of parse machine
 
 
 namespace _Banker
@@ -40,7 +40,6 @@ namespace _Banker
             List<string> parsedCsv = ParseMachine.ParseEngine("c:\\testenv\\export.csv");
 
             ComparisonMachine.ComparisonEngine(parsedCsv);
-
 
             //the following method call will compare each line in lineStorer with each line in each store list and return true or false for that line
             //once I get that true or false, I can begin to sort costs by whether they match X list or not

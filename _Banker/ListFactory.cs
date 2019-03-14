@@ -12,6 +12,7 @@ namespace _Banker
         internal static List<string> gasStationCost = new List<string>();
         internal static List<string> groceryStoreCost = new List<string>();
         internal static List<string> deptStoreCost = new List<string>();
+        internal static List<string> shippingStoreCost = new List<string>();
 
 
         internal static List<string> GasStationList()
@@ -47,6 +48,15 @@ namespace _Banker
                 //Console.WriteLine($"***********{item}");                
                 listOfDepartmentStores.Add(item);
             }
+            return listOfDepartmentStores;
+        }
+
+        internal static List<string> ShippingStoreList()
+        {
+            List<string> listOfDepartmentStores = new List<string>();
+            listOfDepartmentStores.Add("USPS");
+            listOfDepartmentStores.Add("UPS");
+            listOfDepartmentStores.Add("FedEx");
             return listOfDepartmentStores;
         }
     }
