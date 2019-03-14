@@ -8,7 +8,7 @@ using Microsoft.VisualBasic.FileIO;
 
 
 
-//***************************************************MAIN THEORY********************************************************************
+//***************************************************MAIN THEORY & TODO*************************************************************
 //-need to create methods like this to store lists of grocery stores, big name brands (amazon, etc) and populate on start.
 //-then parse csv against these lists and create groups of spending
 //-then create calculations based on spendings from certain categories
@@ -23,6 +23,8 @@ using Microsoft.VisualBasic.FileIO;
         //create cost containers
         //compare each word in each list to each other
         //sort selected items into their appropriate cost container
+
+    //probably need to do the comparison at the parse, judging if each word that is being built into the string that ultimately ends up being the cost contains part of a gas station name, etc
 
     //go through lists and clean them up by hand to increase success of parse machine
 
@@ -39,7 +41,6 @@ namespace _Banker
 
             List<string> parsedCsv = ParseMachine.ParseEngine("c:\\testenv\\export.csv");
 
-            ComparisonMachine.ComparisonEngine(parsedCsv);
 
             //the following method call will compare each line in lineStorer with each line in each store list and return true or false for that line
             //once I get that true or false, I can begin to sort costs by whether they match X list or not

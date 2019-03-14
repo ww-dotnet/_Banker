@@ -13,6 +13,7 @@ namespace _Banker
         internal static List<string> groceryStoreCost = new List<string>();
         internal static List<string> deptStoreCost = new List<string>();
         internal static List<string> shippingStoreCost = new List<string>();
+        internal static List<string> undefinedCost = new List<string>();
 
 
         internal static List<string> GasStationList()
