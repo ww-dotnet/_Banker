@@ -28,7 +28,6 @@ using Microsoft.VisualBasic.FileIO;
 
     //go through lists and clean them up by hand to increase success of parse machine
 
-
 namespace _Banker
 {
     class Program

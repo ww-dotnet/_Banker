@@ -6,7 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace _Banker
-{            
+{
+
+    /// <summary>
+    /// ListFactory is responsible for generation and maintenance of all lists in the software.
+    /// Rely on it to hold all reportable data.    
+    /// </summary>
     class ListFactory
     {
         internal static List<string> gasStationCost = new List<string>();
@@ -15,7 +20,10 @@ namespace _Banker
         internal static List<string> shippingStoreCost = new List<string>();
         internal static List<string> undefinedCost = new List<string>();
 
-
+        /// <summary>
+        /// List of all known gas stations in the US.
+        /// </summary>
+        /// <returns></returns>
         internal static List<string> GasStationList()
         {
             List<string> listOfGasStations = new List<string>();
@@ -27,7 +35,10 @@ namespace _Banker
             }
             return listOfGasStations;
         }
-
+        /// <summary>
+        /// List of all known grocery stores in the US.
+        /// </summary>
+        /// <returns></returns>
         internal static List<string> GroceryStoreList()
         {
             List<string> listOfGroceryStores = new List<string>();
@@ -39,7 +50,10 @@ namespace _Banker
             }
             return listOfGroceryStores;
         }
-
+        /// <summary>
+        /// List of all known department stores in the US.
+        /// </summary>
+        /// <returns></returns>
         internal static List<string> DepartmentStoreList()
         {
             List<string> listOfDepartmentStores = new List<string>();
@@ -51,7 +65,10 @@ namespace _Banker
             }
             return listOfDepartmentStores;
         }
-
+        /// <summary>
+        /// List of most commonly used shipping methods in the US.
+        /// </summary>
+        /// <returns></returns>
         internal static List<string> ShippingStoreList()
         {
             List<string> listOfDepartmentStores = new List<string>();

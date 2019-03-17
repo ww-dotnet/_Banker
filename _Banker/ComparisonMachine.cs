@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace _Banker
 {
+    /// <summary>
+    /// Responible for comparing csv line data to sort costs into appropriate lists.
+    /// Rely on this to sort csv bank data.
+    /// </summary>
     class ComparisonMachine
     {
         internal static bool GasStationComparisonEngine(string csvLineData)

@@ -10,14 +10,24 @@ namespace _Banker
 
 
     //TODO
-        //break this machine down so that it creates a dictionary of costs where each key is the name of the store and each value is the cost for that instance
-        //then from that dictionary, we can create a report
-        
+    //break this machine down so that it creates a dictionary of costs where each key is the name of the store and each value is the cost for that instance
+    //then from that dictionary, we can create a report
 
 
 
+    /// <summary>
+    /// Responsible for parsing csv bulk data into line data. 
+    /// Rely on this to create line data from csv files.
+    /// </summary>
+    /// <param name="path">The string value for the path to the csv file on disk.</param>
+    /// <returns>A list of csv line data.</returns>
     class ParseMachine
     {
+        /// <summary>
+        /// The parsing engine.
+        /// </summary>
+        /// <param name="path">The string value for the path to the csv file on disk.</param>
+        /// <returns>A list of csv line data.</returns>
         public static List<string> ParseEngine(string path)
         {
             List<string> gasStationList = ListFactory.GasStationList();
@@ -102,6 +112,8 @@ namespace _Banker
                         }
                     }
                 }
+
+                //learn regex via java video and apply it to gas station list, etc, as you parse so that it sorts all the data out into predictable columns
                 return lineStorer;
             }
         }
