@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace _Banker
@@ -12,119 +13,72 @@ namespace _Banker
     /// </summary>
     class ComparisonMachine
     {
-        internal static bool GasStationComparisonEngine(string csvLineData)
+        internal static void GasStationComparisonEngine(string csvFieldData)
         {
             List<string> gasStationList = ListFactory.GasStationList();
-            bool isAGasStation = false;
 
             foreach (string item in gasStationList)
             {
-                if (item.Contains(csvLineData))
+                Regex regex = new Regex($"{item}");
+                Match match = regex.Match(csvFieldData);
+                if (match.Success)
                 {
-                    isAGasStation = true;                    
-                } else
-                {
-                    isAGasStation = false;
+                    Console.WriteLine("GAS SUCCESS");
+                    ListFactory.gasStationCost.Add(csvFieldData);
+                    break;
                 }
             }
-            return isAGasStation;
         }
 
-        internal static bool DeptartmentStoreComparisonEngine(string csvLineData)
+        internal static void DeptartmentStoreComparisonEngine(string csvFieldData)
         {
             List<string> departmentStoreList = ListFactory.DepartmentStoreList();
-            bool isADeptStore = false;
 
             foreach (string item in departmentStoreList)
             {
-                if (item.Contains(csvLineData))
+                Regex regex = new Regex($"{item}");
+                Match match = regex.Match(csvFieldData);
+                if (match.Success)
                 {
-                    isADeptStore = true;
-                }
-                else
-                {
-                    isADeptStore = false;
+                    Console.WriteLine("DEPT SUCCESS");
+                    ListFactory.deptStoreCost.Add(csvFieldData);
+                    break;
                 }
             }
-            return isADeptStore;
         }
 
-        internal static bool GroceryStoreComparisonEngine(string csvLineData)
+        internal static void GroceryStoreComparisonEngine(string csvFieldData)
         {
             List<string> groceryStoreList = ListFactory.GroceryStoreList();
-            bool isAgroceryStore = false;
 
             foreach (string item in groceryStoreList)
             {
-                if (item.Contains(csvLineData))
+                Regex regex = new Regex($"{item}");
+                Match match = regex.Match(csvFieldData);
+                if (match.Success)
                 {
-                    isAgroceryStore = true;
-                }
-                else
-                {
-                    isAgroceryStore = false;
+                    Console.WriteLine("GROCERY SUCCESS");
+                    ListFactory.groceryStoreCost.Add(csvFieldData);
+                    break;
                 }
             }
-            return isAgroceryStore;
         }
 
-        internal static bool ShippingStoreComparisonEngine(string csvLineData)
+        internal static void ShippingStoreComparisonEngine(string csvFieldData)
         {
             List<string> shippingStoreList = ListFactory.ShippingStoreList();
-            bool isAshippingStore = false;
 
             foreach (string item in shippingStoreList)
             {
-                if (item.Contains(csvLineData))
+                Regex regex = new Regex($"{item}");
+                Match match = regex.Match(csvFieldData);
+                if (match.Success)
                 {
-                    isAshippingStore = true;
-                }
-                else
-                {
-                    isAshippingStore = false;
+                    Console.WriteLine("SHIPPING SUCCESS");
+                    ListFactory.shippingStoreCost.Add(csvFieldData);
+                    break;
                 }
             }
-            return isAshippingStore;
         }
     }
 }
-
-
-        
-    
-            //needs to be foreach item in csvlinedata, compare to a split list of grocerystores
-        
-    
-
-
-//            foreach (string item in gasStationList)
-//            {
-//                string[] splitter = item.Split(' ');
-//splitGasList.AddRange(splitter);
-//            }
-//            foreach (string line in csvLineData)
-//            {
-//                Console.WriteLine(line);
-//                foreach (string shippingStorePiece in shippingStoreList)
-//                {
-//                    if (line.Contains(shippingStorePiece))
-//                    {
-//                        ListFactory.shippingStoreCost.Add(line);
-//                        continue;
-//                    }
-//                }
-
-//                foreach (string gasStationNamePiece in splitGasList)
-//                {
-//                    if (gasStationNamePiece.Length >= 2)
-//                    {
-//                        if (line.Contains(gasStationNamePiece))
-//                        {
-//                            ListFactory.gasStationCost.Add(line);
-//                        }
-//                        //this algorithm is working, but it is adding USPS stuff to the 
-//                        //gas station list - it shouldn't do that
-//                        //may need to parse further
-//                    }                        
-//                }
-//            }

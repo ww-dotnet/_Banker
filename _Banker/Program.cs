@@ -39,7 +39,8 @@ namespace _Banker
             List<string> groceryStoreList = ListFactory.GroceryStoreList();
 
             List<string> parsedCsv = ParseMachine.ParseEngine("c:\\testenv\\export.csv");
-
+            Console.WriteLine(ListFactory.shippingStoreCost.Count);
+            Console.ReadLine();
 
             //the following method call will compare each line in lineStorer with each line in each store list and return true or false for that line
             //once I get that true or false, I can begin to sort costs by whether they match X list or not

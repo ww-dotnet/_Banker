@@ -1,77 +1,76 @@
-Aloha Petroleum
-American Gas
+AlohPetroleum
+AmericaGas
 Amoco
 ARCO
 Billups
 BP
-Buc-ee's
-Byrne Dairy
-Casey's General Stores
+Bucees
+ByrnDairy
+CaseyGeneraStores
 CENEX
 Chevron
-Circle K
+CircleK
 Citgo
-Clark Brands
+ClarBrands
 Conoco
-Costco brand gasoline
-Cumberland Farms
-Delta Sonic - Buffalo, New York
+Costcbranoline
+CumberlanFarms
+DeltSoniBuffalNeYork
 Exxon
 Etna
 Frontier
-Flying J
+FlyinJ
 Gant
-GasAmerica
-Gas City, Ltd.
-GasTrac
+AmericaCit
+Trac
 Getty
-Go-Mart
+GoMart
 Gulf
 Hess
-High's Dairy Stores
+HighDairStores
 Holiday
-Irving Oil
-King Soopers
-Kroger brand gasoline
-Kum & Go
-Kwik Trip
-Kwik Fill
-Lassus Handy Dandy
-Love's
+IrvinOil
+KinSoopers
+Krogebranoline
+KuGo
+KwiTrip
+KwiFill
+LassuHandDandy
+Loves
 Lukoil
-Marathon Oil
+MarathoOil
 Maverik
-McCoy Oil
+McCoOil
 Meijer
 Mirabito
 Mobil
-Murphy USA
+MurphUSA
 Pemex
-Petro Canada
-Phillips 66
+PetrCanada
+Phillip66
 Pilot
 QuickChek
 QuikTrip
 RaceTrac/Raceway
-Royal Farms
-Rutter's Farm Stores
-7-Eleven brand gasoline
+RoyaFarms
+RutterFarStores
+7Elevebranoline
 76
-Sam's Club
+SamClub
 Safeway
 Servco
 Sheetz
 Shell
-Sinclair
+Slair
 Speedway
 Spinx
-Stewart's Shops
+StewartShops
 Sunoco
 Tesoro
 Texaco
-Thorntons Inc.
-Travelcenters of America
-Travelers Oil
+Thornton
+TravelcenteroAmerica
+TravelerOil
 Valero
 Wawa
 WilcoHess

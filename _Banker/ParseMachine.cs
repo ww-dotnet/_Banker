@@ -39,10 +39,6 @@ namespace _Banker
             {
                 List<string> lineBuilder = new List<string>();
                 List<string> lineStorer = new List<string>();
-                bool gasStationCost = false;
-                bool groceryStoreCost = false;
-                bool deptStoreCost = false;
-                bool shippingStoreCost = false;
                 int columnCounter = 0;
 
                 parser.TextFieldType = FieldType.Delimited;
@@ -58,26 +54,7 @@ namespace _Banker
                         {
                             if (!string.IsNullOrEmpty(field) && !string.IsNullOrWhiteSpace(field))
                             {                                
-                                List<string> splitData = field.Split(' ').ToList();
-                                foreach (string item in splitData) {
-                                    Console.WriteLine("************************" + item);
-                                }
-                                if (gasStationList.Contains(field))
-                                {
-                                    gasStationCost = true;
-                                } else if (groceryStoreList.Contains(field))
-                                {
-                                    groceryStoreCost = true;
-                                } else if (departmentStoreList.Contains(field))
-                                {
-                                    deptStoreCost = true;
-                                } else if (shippingStoreList.Contains(field))
-                                {
-                                    shippingStoreCost = true;
-                                }
-                                splitData.Clear();
                                 lineBuilder.Add(field);
-                                Console.WriteLine(field);
                             }                            
                             else
                             {
@@ -87,26 +64,11 @@ namespace _Banker
                         else
                         {
                             string lineConcat = String.Join(" ", lineBuilder);
-                            if (gasStationCost)
-                            {
-                                ListFactory.gasStationCost.Add(lineConcat);
-                            } else if (groceryStoreCost)
-                            {
-                                ListFactory.groceryStoreCost.Add(lineConcat);
-                            } else if (deptStoreCost)
-                            {
-                                ListFactory.deptStoreCost.Add(lineConcat);
-                            } else if (shippingStoreCost)
-                            {
-                                ListFactory.shippingStoreCost.Add(lineConcat);
-                            } else
-                            {
-                                ListFactory.undefinedCost.Add(lineConcat);
-                            }
-                            gasStationCost = false;
-                            groceryStoreCost = false;
-                            deptStoreCost = false;
-                            shippingStoreCost = false;
+                            ComparisonMachine.ShippingStoreComparisonEngine(lineConcat);
+                            ComparisonMachine.GasStationComparisonEngine(lineConcat);
+                            ComparisonMachine.DeptartmentStoreComparisonEngine(lineConcat);
+                            //grocery store goes here
+
                             lineBuilder.Clear();
                             columnCounter = 0;
                         }
