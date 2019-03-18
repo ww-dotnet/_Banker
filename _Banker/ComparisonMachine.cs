@@ -13,10 +13,14 @@ namespace _Banker
     /// </summary>
     class ComparisonMachine
     {
-        internal static void GasStationComparisonEngine(string csvFieldData)
+
+        internal static void ComparisonEngine(string csvFieldData)
         {
             List<string> gasStationList = ListFactory.GasStationList();
-
+            List<string> departmentStoreList = ListFactory.DepartmentStoreList();
+            List<string> groceryStoreList = ListFactory.GroceryStoreList();
+            List<string> shippingStoreList = ListFactory.ShippingStoreList();
+            
             foreach (string item in gasStationList)
             {
                 Regex regex = new Regex($"{item}");
@@ -28,11 +32,6 @@ namespace _Banker
                     break;
                 }
             }
-        }
-
-        internal static void DeptartmentStoreComparisonEngine(string csvFieldData)
-        {
-            List<string> departmentStoreList = ListFactory.DepartmentStoreList();
 
             foreach (string item in departmentStoreList)
             {
@@ -45,11 +44,6 @@ namespace _Banker
                     break;
                 }
             }
-        }
-
-        internal static void GroceryStoreComparisonEngine(string csvFieldData)
-        {
-            List<string> groceryStoreList = ListFactory.GroceryStoreList();
 
             foreach (string item in groceryStoreList)
             {
@@ -62,11 +56,6 @@ namespace _Banker
                     break;
                 }
             }
-        }
-
-        internal static void ShippingStoreComparisonEngine(string csvFieldData)
-        {
-            List<string> shippingStoreList = ListFactory.ShippingStoreList();
 
             foreach (string item in shippingStoreList)
             {
@@ -78,7 +67,9 @@ namespace _Banker
                     ListFactory.shippingStoreCost.Add(csvFieldData);
                     break;
                 }
-            }
+            }            
+            ListFactory.undefinedCost.Add(csvFieldData);
+            Console.WriteLine("UNDEFINED SUCCESS");
         }
     }
 }

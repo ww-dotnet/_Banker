@@ -64,10 +64,7 @@ namespace _Banker
                         else
                         {
                             string lineConcat = String.Join(" ", lineBuilder);
-                            ComparisonMachine.ShippingStoreComparisonEngine(lineConcat);
-                            ComparisonMachine.GasStationComparisonEngine(lineConcat);
-                            ComparisonMachine.DeptartmentStoreComparisonEngine(lineConcat);
-                            //grocery store goes here
+                            ComparisonMachine.ComparisonEngine(lineConcat);
 
                             lineBuilder.Clear();
                             columnCounter = 0;
