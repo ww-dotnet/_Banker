@@ -23,7 +23,7 @@ namespace _Banker
             
             foreach (string item in gasStationList)
             {
-                Regex regex = new Regex($"{item}");
+                Regex regex = new Regex($"^{item}$");
                 Match match = regex.Match(csvFieldData);
                 if (match.Success)
                 {
@@ -35,7 +35,7 @@ namespace _Banker
 
             foreach (string item in departmentStoreList)
             {
-                Regex regex = new Regex($"{item}");
+                Regex regex = new Regex($"^{item}$");
                 Match match = regex.Match(csvFieldData);
                 if (match.Success)
                 {
@@ -47,7 +47,7 @@ namespace _Banker
 
             foreach (string item in groceryStoreList)
             {
-                Regex regex = new Regex($"{item}");
+                Regex regex = new Regex($"^{item}$");
                 Match match = regex.Match(csvFieldData);
                 if (match.Success)
                 {
@@ -59,7 +59,7 @@ namespace _Banker
 
             foreach (string item in shippingStoreList)
             {
-                Regex regex = new Regex($"{item}");
+                Regex regex = new Regex($"^{item}$");
                 Match match = regex.Match(csvFieldData);
                 if (match.Success)
                 {

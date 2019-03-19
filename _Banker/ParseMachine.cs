@@ -19,8 +19,6 @@ namespace _Banker
     /// Responsible for parsing csv bulk data into line data. 
     /// Rely on this to create line data from csv files.
     /// </summary>
-    /// <param name="path">The string value for the path to the csv file on disk.</param>
-    /// <returns>A list of csv line data.</returns>
     class ParseMachine
     {
         /// <summary>
