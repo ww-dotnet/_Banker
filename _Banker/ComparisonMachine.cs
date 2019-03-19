@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,16 +14,28 @@ namespace _Banker
     /// </summary>
     class ComparisonMachine
     {
-
         internal static void ComparisonEngine(string csvFieldData)
         {
             List<string> gasStationList = ListFactory.GasStationList();
             List<string> departmentStoreList = ListFactory.DepartmentStoreList();
             List<string> groceryStoreList = ListFactory.GroceryStoreList();
             List<string> shippingStoreList = ListFactory.ShippingStoreList();
-            
+
+            //create a comparison engine that captures the first 15 characters of column D
+            //compare column D to list of gas station names
+            //give possible matches a rating;
+            //ie: is length the same, do any characters match, etc
+
+
+
+
+
             foreach (string item in gasStationList)
             {
+                //bool matches = csvFieldData.IndexOf($"{item}", StringComparison.OrdinalIgnoreCase) >= 0;
+                //CultureInfo culture = new CultureInfo("en-US");
+                //bool matches = culture.CompareInfo.IndexOf(csvFieldData, item, CompareOptions.IgnoreCase) >= 0;
+
                 Regex regex = new Regex($"{item}");
                 Match match = regex.Match(csvFieldData);
                 if (match.Success)
@@ -37,6 +50,8 @@ namespace _Banker
             {
                 Regex regex = new Regex($"{item}");
                 Match match = regex.Match(csvFieldData);
+                //bool matches = csvFieldData.IndexOf($"{item}", StringComparison.OrdinalIgnoreCase) >= 0;
+                
                 if (match.Success)
                 {
                     Console.WriteLine("DEPT SUCCESS");
@@ -47,6 +62,8 @@ namespace _Banker
 
             foreach (string item in groceryStoreList)
             {
+                //bool matches = csvFieldData.IndexOf($"{item}", StringComparison.OrdinalIgnoreCase) >= 0;
+                
                 Regex regex = new Regex($"{item}");
                 Match match = regex.Match(csvFieldData);
                 if (match.Success)
@@ -59,6 +76,8 @@ namespace _Banker
 
             foreach (string item in shippingStoreList)
             {
+                //bool matches = csvFieldData.IndexOf($"{item}", StringComparison.OrdinalIgnoreCase) >= 0;
+                
                 Regex regex = new Regex($"{item}");
                 Match match = regex.Match(csvFieldData);
                 if (match.Success)
@@ -67,9 +86,9 @@ namespace _Banker
                     ListFactory.shippingStoreCost.Add(csvFieldData);
                     break;
                 }
-            }            
-            ListFactory.undefinedCost.Add(csvFieldData);
-            Console.WriteLine("UNDEFINED SUCCESS");
+            }
+            //ListFactory.undefinedCost.Add(csvFieldData);
+            //Console.WriteLine("UNDEFINED SUCCESS");
         }
     }
 }

@@ -3,24 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace _Banker
 {
-
-
-    //TODO
-    //break this machine down so that it creates a dictionary of costs where each key is the name of the store and each value is the cost for that instance
-    //then from that dictionary, we can create a report
-
-
-
     /// <summary>
     /// Responsible for parsing csv bulk data into line data. 
     /// Rely on this to create line data from csv files.
     /// </summary>
-    /// <param name="path">The string value for the path to the csv file on disk.</param>
-    /// <returns>A list of csv line data.</returns>
+
     class ParseMachine
     {
         /// <summary>
@@ -39,7 +31,6 @@ namespace _Banker
             {
                 List<string> lineBuilder = new List<string>();
                 List<string> lineStorer = new List<string>();
-                int columnCounter = 0;
 
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
@@ -47,34 +38,45 @@ namespace _Banker
                 {
                     //Process row
                     string[] fields = parser.ReadFields();
-                    foreach (string field in fields)
-                    {
-                        columnCounter++;
-                        if (columnCounter != 7)
-                        {
-                            if (!string.IsNullOrEmpty(field) && !string.IsNullOrWhiteSpace(field))
-                            {                                
-                                lineBuilder.Add(field);
-                            }                            
-                            else
-                            {
-                                continue;
-                            }
-                        }
-                        else
-                        {
-                            string lineConcat = String.Join(" ", lineBuilder);
-                            ComparisonMachine.ComparisonEngine(lineConcat);
-
-                            lineBuilder.Clear();
-                            columnCounter = 0;
-                        }
-                    }
+                    string line = String.Join(" ", fields);
+                    string correctedLine = Regex.Replace(line, " {2,}", " ");
+                    ComparisonMachine.ComparisonEngine(correctedLine);
+                    //Console.WriteLine(correctedLine);
                 }
-
-                //learn regex via java video and apply it to gas station list, etc, as you parse so that it sorts all the data out into predictable columns
                 return lineStorer;
             }
         }
     }
 }
+
+
+
+
+
+
+//foreach (string field in fields)
+//{
+//    //Console.WriteLine("*************" + field);
+
+//    columnCounter++;
+//    if (columnCounter != 7)
+//    {
+//        if (!string.IsNullOrEmpty(field) && !string.IsNullOrWhiteSpace(field))
+//        {
+//            lineBuilder.Add(field);
+//        }
+//        else
+//        {
+//            continue;
+//        }
+//    }
+//    else
+//    {
+//        string lineConcat = String.Join(" ", lineBuilder);
+//        Console.WriteLine("***************" + lineConcat);
+//        //ComparisonMachine.ComparisonEngine(lineConcat);
+
+//        lineBuilder.Clear();
+//        columnCounter = 0;
+//    }
+//}
