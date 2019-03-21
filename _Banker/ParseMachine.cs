@@ -38,10 +38,19 @@ namespace _Banker
                 {
                     //Process row
                     string[] fields = parser.ReadFields();
+                    foreach (string field in fields)
+                    {
+                        Console.WriteLine(field);
+                        Console.ReadLine();
+                    }
+
                     string line = String.Join(" ", fields);
+                    Console.WriteLine(line);
+                    Console.ReadLine();
                     string correctedLine = Regex.Replace(line, " {2,}", " ");
-                    ComparisonMachine.ComparisonEngine(correctedLine);
-                    //Console.WriteLine(correctedLine);
+
+                    Console.WriteLine(correctedLine);
+                    Console.ReadLine();
                 }
                 return lineStorer;
             }
@@ -49,6 +58,7 @@ namespace _Banker
     }
 }
 
+//go back to old code below and create string only using fields 1,2,3,4
 
 
 

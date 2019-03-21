@@ -1,76 +1,74 @@
-AlohPetroleum
-AmericaGas
+GAS
+FUEL
+PETROLEUM
+Aloha Petroleum
+American Gas
 Amoco
 ARCO
 Billups
 BP
 Bucees
-ByrnDairy
-CaseyGeneraStores
+Byrne Dairy
+Caseys General Stores
 CENEX
 Chevron
-CircleK
+Circle K
 Citgo
-ClarBrands
+Clark Brands
 Conoco
-Costcbranoline
-CumberlanFarms
-DeltSoniBuffalNeYork
+Costco brand oline
+Cumberland Farms
 Exxon
-Etna
-Frontier
-FlyinJ
-Gant
-AmericaCit
+Flying J
 Trac
 Getty
 GoMart
 Gulf
 Hess
-HighDairStores
+Highs Dairy Stores
 Holiday
-IrvinOil
-KinSoopers
-Krogebranoline
-KuGo
-KwiTrip
-KwiFill
-LassuHandDandy
+Irving Oil
+King Soopers
+Kroger 
+Kum & Go
+Kwik Trip
+Kwik Fill
+Lassus Handy Dandy
 Loves
 Lukoil
-MarathoOil
+Marathon Oil
 Maverik
-McCoOil
+McCoy Oil
 Meijer
 Mirabito
 Mobil
-MurphUSA
+Murphy USA
 Pemex
-PetrCanada
-Phillip66
+Petro Canada
+Phillips 66
 Pilot
 QuickChek
 QuikTrip
 RaceTrac/Raceway
-RoyaFarms
-RutterFarStores
-7Elevebranoline
+Royal Farms
+Rutters Farm Stores
+7Eleven brand oline
 76
-SamClub
+Sams Club
 Safeway
 Servco
 Sheetz
 Shell
-Slair
+Sinclair
 Speedway
 Spinx
-StewartShops
+Stewarts Shops
 Sunoco
 Tesoro
 Texaco
-Thornton
-TravelcenteroAmerica
-TravelerOil
+Thorntons Inc
+Travelcenters of America
+Travelers Oil
 Valero
 Wawa
 WilcoHess
