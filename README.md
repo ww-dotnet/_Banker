@@ -10,4 +10,4 @@ I have been working on a project called Wally that was made by my mentor that di
 My plan eventually is to tie _Banker into Wally so I can have a kiosk in my office that displays the last months flow of money within my
 household.
 
-This is currently not working. Everything written here, with a few obvious exceptions, was written by me.
+This is currently not complete. Everything written here, with a few obvious exceptions, was written by me.
